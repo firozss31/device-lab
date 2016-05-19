@@ -9,7 +9,7 @@ To be able to use the device locally you need to have installed the [Android SDK
 
 To be able to debug the remote device on a local machine, you need to do the following:
 
-1. On STF, after controlling a device, go to the **Dashboard** tab -> **Remote Debug** panel.
+1. On DeviceLab, after controlling a device, go to the **Dashboard** tab -> **Remote Debug** panel.
 
 2. There will be a text field with content like `adb connect ...`. Click and copy that text.
 

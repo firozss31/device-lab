@@ -5,7 +5,7 @@
 
 - **Usage**
 	- Use LDAP login credentials
-	- [Remote Debugging](/#!/docs/remote-debug)
+	- [Remote Debugging](/#!/docs/Remote-Debug)
 	- Take Screen-shots
 	- Remote Shell
 	- Browser Navigation
