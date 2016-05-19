@@ -1,6 +1,6 @@
 # ADB Keys
 
-By providing to STF your **Public ADB Key**, you will be able to use the any device at any time from `adb connect`, even without needing to open STF at all.
+By providing to DeviceLab your **Public ADB Key**, you will be able to use the any device at any time from `adb connect`, even without needing to open DeviceLab at all.
 
 This is very useful for **automation tasks** (like running *functional tests over multiple Android devices*).
 
@@ -32,13 +32,13 @@ It should copy the contents of the `adbkey.pub` file to your clipboard.
 **Note:** You can also use your text editor, by opening the `~/.android/adbkey.pub` file and copying the contents of the file.
 
 
-## Step 3: Add your ADB Key to STF
+## Step 3: Add your ADB Key to DeviceLab
 
-Now that the key is in the clipboard, add it into STF:
+Now that the key is in the clipboard, add it into DeviceLab:
 
 1. Go to **Settings**.
 2. Click the **Keys** tab.
 3. In **ADB Keys**, Press the `+ (Add)` button.
 4. In **Key**, paste the key and press **Enter**.
 
-Now you should be able to use any device more freely in STF.
+Now you should be able to use any device more freely in DeviceLab.
