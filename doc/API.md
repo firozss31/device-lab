@@ -1,15 +1,3 @@
-## Overview
-
-This document describes important RESTful APIs of STF. These APIs may open the door to new creative uses of STF. You can use these APIs for running UI tests on real devices. Integrating STF with CI tools such as Jenkins etc. Building device farm for data extraction for smartphone app data mining. You can even use these apis for creating bitcoin mining farm. Possibilities are infinite!
-
-*PS: Please, don't forget to give us our share, if you successfully mine some bitcoins ;)*.
-
-Let's talk about APIs now. Internally STF uses [Swagger](http://swagger.io/) interface for its API implementation. For those who don't know about Swagger, Swagger provides specifications for RESTful apis. By using it you can generate documentations and client SDKs in various language automatically for Swagger-enabled apps. This gives you power to use STF APIs in any language of your favorite. You can read more about Swagger at [here](http://swagger.io/getting-started/).
-
-### Swagger Documentations
-
-You can check swagger documentations for STF APIs from [here](https://vbanthia.github.io/angular-swagger-ui). From this document you can check latest APIs, their definitions, usage etc.
-
 ## APIs
 - [Authentication](#authentication)
 - [Devices](#devices)
@@ -20,13 +8,13 @@ You can check swagger documentations for STF APIs from [here](https://vbanthia.g
 - [DisconnectDevice](#disconnect-device)
 
 ### Authentication
-STF uses oauth2 for RESTful APIs authentication. In order to use APIs, you will first need to generate an access token. Access tokens can be easily generated from STF UI. Just go to the **Settings** tab and generate new access token from keys section. Don't forget to save this token somewhere, you will not be able to see it again.
+DeviceLab uses oauth2 for RESTful APIs authentication. In order to use APIs, you will first need to generate an access token. Access tokens can be easily generated from DeviceLab UI. Just go to the **Settings** tab and generate new access token from keys section. Don't forget to save this token somewhere, you will not be able to see it again.
 
 Put access token in the header of every request
 
 Curl Sample
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user
 ```
 
 NodeJS Sample
@@ -34,7 +22,7 @@ NodeJS Sample
 
 var Swagger = require('swagger-client');
 
-var SWAGGER_URL = 'https://stf.example.org/api/v1/swagger.json';
+var SWAGGER_URL = 'http://localhost:7100/api/v1swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 // Without Promise
@@ -63,7 +51,7 @@ clientWithPromise.then(function(api) {
   api.user.getUser()
     .then(function(res) {
       console.log(res.obj.user.email)
-      // vishal@example.com
+      // test@example.com
     })
 })
 ```
@@ -71,7 +59,7 @@ clientWithPromise.then(function(api) {
 ### Devices
 #### /devices
 
-**List all STF devices including disconnected or offline ones**
+**List all DeviceLab devices including disconnected or offline ones**
 
 ```bash
 GET /api/v1/devices
@@ -80,7 +68,7 @@ GET /api/v1/devices
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1devices
 ```
 
 NodeJS Sample
@@ -116,7 +104,7 @@ GET /api/v1/devices/{serial}
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/devices/xxxxxxxxx
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1devices/xxxxxxxxx
 ```
 
 NodeJS Sample
@@ -152,7 +140,7 @@ GET /api/v1/user
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user
 ```
 
 NodeJS Sample
@@ -162,7 +150,7 @@ clientWithPromise.then(function(api) {
   api.user.getUser()
     .then(function(res) {
       console.log(res.obj.user.email)
-      // vishal@example.com
+      // test@example.com
     })
 })
 ```
@@ -178,7 +166,7 @@ GET /api/v1/user/devices
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices
 ```
 
 NodeJS Sample
@@ -211,7 +199,7 @@ POST /api/v1/user/devices
 Curl Sample
 
 ```bash
-curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices
+curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices
 ```
 
 NodeJS Sample
@@ -240,7 +228,7 @@ DELETE /api/v1/user/devices/{serial}
 Curl Sample
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}
+curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices/{serial}
 ```
 
 NodeJS Sample
@@ -269,7 +257,7 @@ POST /api/v1/user/devices/{serial}/remoteConnect
 Curl Sample
 
 ```bash
-curl -X POST --header "Content-Type:application/json" -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X POST --header "Content-Type:application/json" -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices/{serial}/remoteConnect
 ```
 
 NodeJS Sample
@@ -298,7 +286,7 @@ DELETE /api/v1/user/devices/{serial}/remoteConnect
 Curl Sample
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" https://stf.example.org/api/v1/user/devices/{serial}/remoteConnect
+curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices/{serial}/remoteConnect
 ```
 
 NodeJS Sample
@@ -326,7 +314,7 @@ clientWithPromise.then(function(api) {
 
 var Swagger = require('swagger-client');
 
-var SWAGGER_URL = 'https://stf.example.org/api/v1/swagger.json';
+var SWAGGER_URL = 'http://localhost:7100/api/v1swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 // Using Promise
@@ -384,7 +372,7 @@ node stf-connect.js xxxx
 ```js
 var Swagger = require('swagger-client');
 
-var SWAGGER_URL = 'https://stf.example.org/api/v1/swagger.json';
+var SWAGGER_URL = 'http://localhost:7100/api/v1swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 var client = new Swagger({
