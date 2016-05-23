@@ -57,7 +57,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       // preparations are ready AND the device has no owner or we are the
       // owner
       data.usable = data.present && data.status === 3 && data.ready &&
-        (!data.owner || data.using)
+      (!data.owner || data.using)
 
       // Make sure we don't mistakenly think we still have the device
       if (!data.usable || !data.owner) {
@@ -102,7 +102,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
         .then(function(device) {
           return changeListener({
             important: true
-          , data: device
+            , data: device
           })
         })
         .catch(function() {})
@@ -148,7 +148,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
     this.add = function(device) {
       addListener({
         important: true
-      , data: device
+        , data: device
       })
     }
 
@@ -162,10 +162,10 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       filter: function() {
         return true
       }
-    , digest: false
+      , digest: false
     })
 
-    oboe('/app/api/v1/devices')
+    oboe('/api/v1/devices')
       .node('devices[*]', function(device) {
         tracker.add(device)
       })
@@ -178,10 +178,10 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       filter: function(device) {
         return device.using
       }
-    , digest: true
+      , digest: true
     })
 
-    oboe('/app/api/v1/group')
+    oboe('/api/v1/user/devices')
       .node('devices[*]', function(device) {
         tracker.add(device)
       })
@@ -190,7 +190,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
   }
 
   deviceService.load = function(serial) {
-    return $http.get('/app/api/v1/devices/' + serial)
+    return $http.get('/api/v1/devices/' + serial)
       .then(function(response) {
         return response.data.device
       })
@@ -201,7 +201,7 @@ module.exports = function DeviceServiceFactory($http, socket, EnhanceDeviceServi
       filter: function(device) {
         return device.serial === serial
       }
-    , digest: true
+      , digest: true
     })
 
     return deviceService.load(serial)
