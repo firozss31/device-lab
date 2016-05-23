@@ -14,7 +14,7 @@ Put access token in the header of every request
 
 Curl Sample
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user
 ```
 
 NodeJS Sample
@@ -22,7 +22,7 @@ NodeJS Sample
 
 var Swagger = require('swagger-client');
 
-var SWAGGER_URL = 'http://localhost:7100/api/v1swagger.json';
+var SWAGGER_URL = 'http://localhost:7100/api/v1/swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 // Without Promise
@@ -68,7 +68,7 @@ GET /api/v1/devices
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1devices
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/devices
 ```
 
 NodeJS Sample
@@ -104,7 +104,7 @@ GET /api/v1/devices/{serial}
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1devices/xxxxxxxxx
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/devices/xxxxxxxxx
 ```
 
 NodeJS Sample
@@ -140,7 +140,7 @@ GET /api/v1/user
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user
 ```
 
 NodeJS Sample
@@ -166,7 +166,7 @@ GET /api/v1/user/devices
 Curl Sample
 
 ```bash
-curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices
+curl -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user/devices
 ```
 
 NodeJS Sample
@@ -199,7 +199,7 @@ POST /api/v1/user/devices
 Curl Sample
 
 ```bash
-curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices
+curl -X POST --header "Content-Type:application/json" --data '{"serial":"EP7351U3WQ"}' -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user/devices
 ```
 
 NodeJS Sample
@@ -228,7 +228,7 @@ DELETE /api/v1/user/devices/{serial}
 Curl Sample
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices/{serial}
+curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user/devices/{serial}
 ```
 
 NodeJS Sample
@@ -257,7 +257,7 @@ POST /api/v1/user/devices/{serial}/remoteConnect
 Curl Sample
 
 ```bash
-curl -X POST --header "Content-Type:application/json" -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices/{serial}/remoteConnect
+curl -X POST --header "Content-Type:application/json" -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user/devices/{serial}/remoteConnect
 ```
 
 NodeJS Sample
@@ -286,7 +286,7 @@ DELETE /api/v1/user/devices/{serial}/remoteConnect
 Curl Sample
 
 ```bash
-curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1user/devices/{serial}/remoteConnect
+curl -X DELETE -H "Authorization: Bearer OAUTH-TOKEN" http://localhost:7100/api/v1/user/devices/{serial}/remoteConnect
 ```
 
 NodeJS Sample
@@ -310,11 +310,11 @@ clientWithPromise.then(function(api) {
 ### Connect Device
 
 ```js
-// stf-connect.js
+// devicelab-connect.js
 
 var Swagger = require('swagger-client');
 
-var SWAGGER_URL = 'http://localhost:7100/api/v1swagger.json';
+var SWAGGER_URL = 'http://localhost:7100/api/v1/swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 // Using Promise
@@ -363,7 +363,7 @@ client.then(function(api) {
 })
 ```
 ```bash
-node stf-connect.js xxxx
+node devicelab-connect.js xxxx
 # $PROVIDR_IP:16829
 ```
 
@@ -372,7 +372,7 @@ node stf-connect.js xxxx
 ```js
 var Swagger = require('swagger-client');
 
-var SWAGGER_URL = 'http://localhost:7100/api/v1swagger.json';
+var SWAGGER_URL = 'http://localhost:7100/api/v1/swagger.json';
 var AUTH_TOKEN  = 'xx-xxxx-xx';
 
 var client = new Swagger({
@@ -419,6 +419,6 @@ client.then(function(api) {
 ```
 
 ```bash
-node stf-disconnect.js xxxx
+node devicelab-disconnect.js xxxx
 # Device disconnected successfully!
 ```
