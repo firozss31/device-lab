@@ -12,7 +12,7 @@
   },
   "basePath": "/api/v1",
   "schemes": [
-    "http",
+    "http"
   ],
   "consumes": [
     "application/json"
